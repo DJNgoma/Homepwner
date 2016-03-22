@@ -26,8 +26,7 @@ class ItemsViewController: UITableViewController {
     // MARK: UITableViewDataSource methods
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("The count for the amount of sections is: \(itemStore.allItems.count)")
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -38,10 +37,14 @@ class ItemsViewController: UITableViewController {
         // Set the text on the cell with the description of the item
         // that is at the nth index of items, where n = row this cell
         // will appear in on the tableview
-        let item = itemStore.allItems[indexPath.row]
-        
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        if !(itemStore.allItems.count == indexPath.row) {
+            let item = itemStore.allItems[indexPath.row]
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        } else {
+            cell.textLabel?.text = "No more items!"
+            cell.detailTextLabel?.text = ""
+        }
         
         return cell
     }
