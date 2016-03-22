@@ -21,12 +21,25 @@ class ItemsViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "ocean"))
+        tableView.backgroundView?.contentMode = .ScaleAspectFill
+        tableView.separatorStyle = .None
+        
     }
     
     // MARK: UITableViewDataSource methods
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count + 1
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if !(itemStore.allItems.count == indexPath.row) {
+            return 60
+        } else {
+            return tableView.rowHeight
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,10 +54,16 @@ class ItemsViewController: UITableViewController {
             let item = itemStore.allItems[indexPath.row]
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            cell.textLabel?.font = cell.textLabel?.font.fontWithSize(20)
+            cell.detailTextLabel?.font = cell.detailTextLabel?.font.fontWithSize(20)
         } else {
             cell.textLabel?.text = "No more items!"
             cell.detailTextLabel?.text = ""
         }
+        
+        cell.textLabel?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
+        cell.detailTextLabel?.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
+        cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
         
         return cell
     }
