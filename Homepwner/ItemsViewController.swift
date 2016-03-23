@@ -126,10 +126,12 @@ class ItemsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         
+        // Code to prvent reordering
         if destinationIndexPath.row == self.itemStore.allItems.count {
             tableView.reloadData()
             return
         }
+        
         // Update the model
         itemStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
