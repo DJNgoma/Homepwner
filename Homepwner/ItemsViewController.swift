@@ -28,6 +28,15 @@ class ItemsViewController: UITableViewController {
     }
     
     @IBAction func toggleEditingMode(sender: AnyObject) {
+        
+        
+        // TODO: Look into this code for the Silver Challenge
+        if tableView.numberOfRowsInSection(0) == 1 {
+            tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))?.setEditing(false, animated: true)
+            tableView.editing = false
+            return
+        }
+        
         // If you are currently in editing mode...
         if editing {
             // Change text of button to inform user of state
@@ -62,7 +71,7 @@ class ItemsViewController: UITableViewController {
     // MARK: UITableViewDataSource methods
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -73,17 +82,24 @@ class ItemsViewController: UITableViewController {
         // Set the text on the cell with the description of the item
         // that is at the nth index of items, where n = row this cell
         // will appear in on the tableview
-        let item = itemStore.allItems[indexPath.row]
-        
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        if !(itemStore.allItems.count == indexPath.row) {
+            let item = itemStore.allItems[indexPath.row]
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        } else {
+            cell.textLabel?.text = "No more items!"
+            cell.detailTextLabel?.text = ""
+        }
         
         return cell
     }
+
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // If the table view is asking to commet a delete command...
+        
+        // If the table view is asking to commit a delete command...
         if editingStyle == .Delete {
+            
             let item = itemStore.allItems[indexPath.row]
             
             let title = "Delete \(item.name)?"
@@ -109,12 +125,26 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        
+        if destinationIndexPath.row == self.itemStore.allItems.count {
+            tableView.reloadData()
+            return
+        }
         // Update the model
         itemStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
     override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
         return "Remove"
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.row == itemStore.allItems.count {
+            return false
+        }
+        else {
+            return true
+        }
     }
     
 }
