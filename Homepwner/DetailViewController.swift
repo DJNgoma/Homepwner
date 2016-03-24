@@ -18,11 +18,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true) // Don't have to worry which UITextField needs their firstResponder resigned.
     }
     
-    var item: Item! {
-        didSet {
-            navigationItem.title = item.name
-        }
-    }
+    var item: Item!
     
     let numberFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
@@ -74,5 +70,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // MARK: Preparing for Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ChangeDate" {
+            let changeDateViewController = segue.destinationViewController as! ChangeDateViewController
+            changeDateViewController.item = item
+        }
     }
 }
