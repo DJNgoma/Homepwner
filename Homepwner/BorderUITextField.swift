@@ -10,6 +10,7 @@ import UIKit
 
 class BorderUITextField: UITextField {
     
+    // Done Silver Challenge
     override func becomeFirstResponder() -> Bool {
         super.becomeFirstResponder()
         self.borderStyle = .Bezel
