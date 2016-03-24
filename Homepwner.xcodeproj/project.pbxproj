@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		166467F31CA3ACCB0022A067 /* BorderUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166467F21CA3ACCB0022A067 /* BorderUITextField.swift */; };
 		168F25B51C9FE7F80062C209 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F25B41C9FE7F80062C209 /* AppDelegate.swift */; };
 		168F25BA1C9FE7F80062C209 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168F25B81C9FE7F80062C209 /* Main.storyboard */; };
 		168F25BC1C9FE7F80062C209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168F25BB1C9FE7F80062C209 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		166467F21CA3ACCB0022A067 /* BorderUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderUITextField.swift; sourceTree = "<group>"; };
 		168F25B11C9FE7F80062C209 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168F25B41C9FE7F80062C209 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168F25B91C9FE7F80062C209 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				168F25C81C9FEABF0062C209 /* Item.swift */,
 				168F25CA1C9FF2130062C209 /* ItemStore.swift */,
 				168F25B81C9FE7F80062C209 /* Main.storyboard */,
+				166467F21CA3ACCB0022A067 /* BorderUITextField.swift */,
 				16B290621CA2947400F51BCC /* DetailViewController.swift */,
 				168F25BB1C9FE7F80062C209 /* Assets.xcassets */,
 				168F25BD1C9FE7F80062C209 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166467F31CA3ACCB0022A067 /* BorderUITextField.swift in Sources */,
 				168F25C71C9FE8590062C209 /* ItemsViewController.swift in Sources */,
 				168F25C91C9FEABF0062C209 /* Item.swift in Sources */,
 				168F25CB1C9FF2130062C209 /* ItemStore.swift in Sources */,
