@@ -174,6 +174,12 @@
                                             <action selector="takePicture:" destination="vak-P4-aKs" id="8hU-ag-NSQ"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="M2g-pP-mcp"/>
+                                    <barButtonItem title="Clear Image" id="nQq-rc-Enc">
+                                        <connections>
+                                            <action selector="clearPicture:" destination="vak-P4-aKs" id="jQF-sk-NMa"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

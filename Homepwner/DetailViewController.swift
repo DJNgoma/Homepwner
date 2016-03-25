@@ -39,6 +39,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func clearPicture(sender: UIBarButtonItem) {
+        
+        imageStore.deleteImageForKey(item.itemKey)
+        
+        // Remove image on the screen in the image view
+        imageView.image = nil
+        
+    }
+    
     var item: Item! {
         didSet {
             navigationItem.title = item.name
