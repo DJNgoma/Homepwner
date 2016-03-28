@@ -12,23 +12,8 @@ class ItemsViewController: UITableViewController {
     
     var itemStore: ItemStore!
     var imageStore: ImageStore!
-
     
-    @IBAction func addNewItem(sender: AnyObject) {
-        
-        // Creaete a new item and add it to the store
-        let newItem = itemStore.createItem()
-        
-        // Figure out where that item is in the array
-        if let index = itemStore.allItems.indexOf(newItem) {
-            let indexPath = NSIndexPath(forRow: index, inSection: 0)
-            
-            // Insert this new row into the table
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        }
-    }
-    
-    // MARK: Class Initializes
+    // MARK: - Initializers
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,7 +21,7 @@ class ItemsViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem()
     }
     
-    // MARK: View Lifecycle Methods
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +37,7 @@ class ItemsViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    // MARK: UITableViewDataSource methods
+    // MARK: - UITableViewDataSource methods
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
@@ -112,7 +97,20 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
-    // MARK: Preparing for Segue
+    // MARK: - Actions
+    @IBAction func addNewItem(sender: AnyObject) {
+        
+        // Creaete a new item and add it to the store
+        let newItem = itemStore.createItem()
+        
+        // Figure out where that item is in the array
+        if let index = itemStore.allItems.indexOf(newItem) {
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            
+            // Insert this new row into the table
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // If the triggered segue is the "ShowItem" segue
