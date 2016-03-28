@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    let imagePicker = UIImagePickerController()
+    
     @IBOutlet var nameField: UITextField!
     @IBOutlet var serialNumberField: UITextField!
     @IBOutlet var valueField: UITextField!
@@ -20,14 +22,46 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         view.endEditing(true) // Don't have to worry which UITextField needs their firstResponder resigned.
     }
     
+    func crossHair() -> UIView {
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let previewHeight = screenWidth + (screenWidth/3)
+        let screenHeight = UIScreen.mainScreen().bounds.size.width
+        let totalBlack = screenHeight - previewHeight
+        let heightOfBlackTopAndBottom = totalBlack / 2
+        
+        let shapeLayer = CAShapeLayer()
+        
+        let path = UIBezierPath()
+        
+        let bounds = imagePicker.view.bounds
+        
+        path.moveToPoint(CGPointMake(bounds.width/2, -(heightOfBlackTopAndBottom/2)))
+        path.addLineToPoint(CGPointMake(bounds.width/2, bounds.height + (heightOfBlackTopAndBottom*2)))
+        path.closePath()
+        
+        path.moveToPoint(CGPointMake(0, bounds.height/2))
+        path.addLineToPoint(CGPointMake(bounds.height, bounds.height/2))
+        path.closePath()
+        
+        shapeLayer.path = path.CGPath
+        shapeLayer.strokeColor = UIColor.yellowColor().CGColor
+        shapeLayer.lineWidth = 1.0
+        
+        let crossHairView = UIView()
+        crossHairView.layer.addSublayer(shapeLayer)
+        return crossHairView
+    }
+    
     @IBAction func takePicture(sender: UIBarButtonItem) {
         
-        let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
+        
         // If the device has a camera, take a picture; otherwise,
         // just pick from photo library
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             imagePicker.sourceType = .Camera
+            
+            imagePicker.cameraOverlayView = crossHair()
         }
         else {
             imagePicker.sourceType = .PhotoLibrary
@@ -70,8 +104,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         return formatter
     }()
     
-    
     // MARK: Lifecycle Methods
+    
+    override func viewDidLoad() {
+        NSNotificationCenter.defaultCenter().addObserverForName("_UIImagePickerControllerUserDidCaptureItem", object:nil, queue:nil, usingBlock: { note in
+            self.imagePicker.cameraOverlayView = nil;
+        })
+        NSNotificationCenter.defaultCenter().addObserverForName("_UIImagePickerControllerUserDidRejectItem", object:nil, queue:nil, usingBlock: { note in
+            self.imagePicker.cameraOverlayView = self.crossHair();
+        })
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -106,6 +148,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         else {
             item.valueInDollars = 0
         }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "_UIImagePickerControllerUserDidCaptureItem", object: nil)
     }
     
     // MARK: UITextField Delegate Methods
