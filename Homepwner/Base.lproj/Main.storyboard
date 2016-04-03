@@ -102,16 +102,25 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="276" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wfj-Yb-3Nr">
                                                         <rect key="frame" x="53" y="0.0" width="507" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="29" width="276" height="30"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="delegate" destination="vak-P4-aKs" id="PyR-ct-DVr"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="59"/>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-zR-L73">
                                                 <rect key="frame" x="0.0" y="38" width="560" height="30"/>
@@ -121,16 +130,25 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="276" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1P-qd-AwM">
                                                         <rect key="frame" x="53" y="0.0" width="507" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="29" width="276" height="30"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="delegate" destination="vak-P4-aKs" id="Aah-QH-xmf"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="67" width="276" height="59"/>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="era-ef-kcF">
                                                 <rect key="frame" x="0.0" y="76" width="560" height="30"/>
@@ -140,22 +158,34 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="276" height="21"/>
+                                                        </variation>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9VB-Gs-fr4">
                                                         <rect key="frame" x="53" y="0.0" width="507" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <variation key="heightClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="29" width="276" height="30"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="delegate" destination="vak-P4-aKs" id="3Nw-Zk-tYJ"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="134" width="276" height="59"/>
+                                                </variation>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ic7-EG-GlZ">
                                                 <rect key="frame" x="0.0" y="114" width="560" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="201" width="276" height="75"/>
+                                                </variation>
                                             </label>
                                         </subviews>
                                         <constraints>
